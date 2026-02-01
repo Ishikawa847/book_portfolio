@@ -1,0 +1,11 @@
+FROM node:20
+
+WORKDIR /app
+
+# npm / node のログを見やすく
+ENV TZ=Asia/Tokyo
+
+# 依存関係は compose 側で管理するのでここでは触らない
+# npm install もしない（volume前提）
+
+CMD ["npm", "run", "dev", "--", "--host"]
