@@ -35,6 +35,8 @@ services:
         condition: service_healthy
     tty: true
     stdin_open: true
+    env_file:
+      - .env
 
   frontend:
     build:
