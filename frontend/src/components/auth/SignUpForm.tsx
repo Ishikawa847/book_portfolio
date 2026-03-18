@@ -19,7 +19,7 @@ export default function SignUpForm() {
         name,
         email,
         password,
-        passwordConfirmation
+        password_confirmation: passwordConfirmation 
       })
       console.log(res)
 
@@ -31,10 +31,10 @@ export default function SignUpForm() {
         setIsSignedIn(true)
         setCurrentUser(res.data.data)
 
-        navigate("/")
+        navigate("/home")
       }
-    } catch (err) {
-      console.error(err)
+    } catch (err: any) {
+  console.log(err.response.data)
     }
   }
   
