@@ -45,7 +45,7 @@ const AuthButtons = () => {
       <Link to="/signin" className="btn btn-ghost">
         Sign in
       </Link>
-      <Link to="/signup" className="btn btn-primary">
+      <Link to="/signup" className="btn btn-warning">
         Sign up
       </Link>
     </>
