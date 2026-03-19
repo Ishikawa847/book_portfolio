@@ -35,9 +35,8 @@ export default function SignInForm() {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="card bg-base-200 shadow-xl w-96">
-        <div className="card-body">
-          <h2 className="card-title justify-center">Sign In</h2>
+      <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+        <legend className="fieldset-legend">Signup</legend>
 
           {error && (
             <div className="alert alert-error text-sm">
@@ -49,7 +48,7 @@ export default function SignInForm() {
             <label className="label">Email</label>
             <input
               type="email"
-              className="input input-bordered w-full"
+              className="input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -66,7 +65,7 @@ export default function SignInForm() {
           </div>
 
           <button
-            className="btn btn-primary mt-4"
+            className="btn btn-warning mt-4"
             onClick={handleSubmit}
             disabled={!email || !password}
           >
@@ -75,12 +74,11 @@ export default function SignInForm() {
 
           <p className="text-center text-sm mt-2">
             アカウントをお持ちでないですか？{" "}
-            <Link to="/signup" className="link link-primary">
+            <Link to="/signup" className="btn btn-warning mt-4">
               新規登録
             </Link>
           </p>
-        </div>
-      </div>
+      </fieldset>
     </div>
   )
 }
