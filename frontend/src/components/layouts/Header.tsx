@@ -1,7 +1,20 @@
-export default function Header() {
+import { Link } from "react-router-dom"
+import AuthButtons from "@/components/layouts/AuthButtons"
+
+const Header = () => {
   return (
-<div className="navbar bg-base-100 shadow-sm">
-  <a className="btn btn-ghost text-xl">Book Portpolio</a>
-</div>
+    <header className="navbar bg-base-100 shadow-md px-4">
+      <div className="flex-1">
+        <Link to="/" className="text-xl font-bold">
+          Book Portfolio
+        </Link>
+      </div>
+
+      <div className="flex gap-2">
+        <AuthButtons />
+      </div>
+    </header>
   )
 }
+
+export default Header
