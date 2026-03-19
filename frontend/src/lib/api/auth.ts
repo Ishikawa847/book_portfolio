@@ -1,7 +1,7 @@
-import client from "lib/api/client"
+import client from "@/lib/api/client"
 import Cookies from "js-cookie"
 
-import type { SignUpParams, SignInParams } from "interfaces/index"
+import type { SignUpParams, SignInParams } from "@/interfaces/index"
 
 // サインアップ（新規アカウント作成）
 export const signUp = (params: SignUpParams) => {
