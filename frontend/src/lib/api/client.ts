@@ -1,6 +1,8 @@
 import applyCaseMiddleware from "axios-case-converter"
 import axios from "axios"
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL
+
 // applyCaseMiddleware:
 // axiosで受け取ったレスポンスの値をスネークケース→キャメルケースに変換
 // または送信するリクエストの値をキャメルケース→スネークケースに変換してくれるライブラリ
@@ -11,7 +13,7 @@ const options = {
 }
 
 const client = applyCaseMiddleware(axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL
+  baseURL: `${API_BASE}/api/v1`
 }), options)
 
 export default client
