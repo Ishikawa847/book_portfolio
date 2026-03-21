@@ -1,3 +1,5 @@
+import { Link, useNavigate } from "react-router-dom"
+
 export default function Hero() {
   return (
 <div className="hero bg-base-200 min-h-screen">
@@ -8,7 +10,9 @@ export default function Hero() {
       </h1>
       <p className="py-6">
       </p>
-      <button className="btn btn-secondary">Get Started</button>
+      <Link to="/signup" className="btn btn-warning">
+        Get started
+      </Link>
     </div>
   </div>
 </div>
