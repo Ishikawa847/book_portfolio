@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from "react"
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import './App.css'
 
 import Landing from "./pages/Landing"
@@ -22,6 +22,7 @@ export const AuthContext = createContext({} as {
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true)
+  console.log("loading:", loading)
   const [isSignedIn, setIsSignedIn] = useState<boolean>(false)
   const [currentUser, setCurrentUser] = useState<User | undefined>()
 
