@@ -1,7 +1,7 @@
 class CreateBooks < ActiveRecord::Migration[7.2]
   def change
     create_table :books, id: :uuid do |t|
-      t.string :title
+      t.string :title, null: false
       t.string :author
       t.string :image_url
       t.string :google_books_id

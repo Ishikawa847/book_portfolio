@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_04_17_121011) do
   enable_extension "plpgsql"
 
   create_table "books", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.string "author"
     t.string "image_url"
     t.string "google_books_id"
