@@ -23,3 +23,11 @@ export interface User {
   created_at: Date
   updated_at: Date
 }
+
+// 本
+export interface Book {
+  id: string
+  title: string
+  author: string
+  imageUrl: string
+}
