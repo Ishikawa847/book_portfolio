@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get :health, to: 'health#index'
       resources :books, only: [:index, :create]
+      get "/books/search", to: "books#search"
     end
   end
 
