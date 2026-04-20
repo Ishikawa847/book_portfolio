@@ -19,9 +19,10 @@ class Api::V1::BooksController < ApplicationController
   def search
     keyword = params[:keyword]
 
-    url = "https://www.googleapis.com/books/v1/volumes?q=#{keyword}"
+    url = "https://www.googleapis.com/books/v1/volumes?q=#{CGI.escape(keyword)}&key=#{ENV['GOOGLE_BOOKS_API_KEY']}"
     response = Faraday.get(url)
     data = JSON.parse(response.body)
+    puts response.body
 
     books = data["items"]&.map do |item|
       info = item["volumeInfo"]
