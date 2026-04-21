@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { getBooks } from "@/lib/api/books"
 import type { Book } from "@/interfaces/index"
 import BookList from "@/components/books/BookList"
+import SearchBooks from "@/components/books/SearchBooks"
+
 
 export default function Home() {
   const [books, setBooks] = useState<Book[]>([])
@@ -29,6 +31,8 @@ export default function Home() {
       <h1 className="text-2xl font-bold mb-4">
         ログイン後ページ
       </h1>
+
+      <SearchBooks setBooks={setBooks} />
 
       <BookList books={books} />
     </div>
