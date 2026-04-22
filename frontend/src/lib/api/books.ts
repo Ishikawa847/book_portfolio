@@ -10,3 +10,9 @@ export const getBooks = () => {
         },
     })
 }
+
+export const searchBooks = (keyword: string) => {
+    return client.get("/books/search", {
+        params: { keyword }
+    })
+}
