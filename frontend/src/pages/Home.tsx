@@ -3,6 +3,7 @@ import { getBooks } from "@/lib/api/books"
 import type { Book } from "@/interfaces/index"
 import BookList from "@/components/books/BookList"
 import SearchBooks from "@/components/books/SearchBooks"
+import SearchResultList from "@/components/books/SearchResultList"
 
 
 export default function Home() {
@@ -33,6 +34,7 @@ export default function Home() {
       </h1>
 
       <SearchBooks setBooks={setBooks} />
+      <SearchResultList books={books} />
 
       <BookList books={books} />
     </div>
