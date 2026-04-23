@@ -16,3 +16,12 @@ export const searchBooks = (keyword: string) => {
         params: { keyword }
     })
 }
+
+export const createBook = (params:{
+    title: string
+    author: string
+    imageUrl: string
+    googleBooksID: string
+    }) => {
+      return client.post("/books", params)
+}
