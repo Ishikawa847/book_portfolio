@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
 import { getBooks } from "@/lib/api/books"
 import type { Book } from "@/interfaces/index"
+
 import BookList from "@/components/books/BookList"
 import SearchBooks from "@/components/books/SearchBooks"
 import SearchResultList from "@/components/books/SearchResultList"
 
-
 export default function Home() {
-  const [books, setBooks] = useState<Book[]>([])
+  const [books, setBooks] = useState<Book[]>([]) // 登録済み本
+  const [searchResults, setSearchResults] = useState<Book[]>([]) // 検索結果
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -33,9 +34,15 @@ export default function Home() {
         ログイン後ページ
       </h1>
 
-      <SearchBooks setBooks={setBooks} />
-      <SearchResultList books={books} />
+      {/* 検索 */}
+      <SearchBooks setBooks={setSearchResults} />
 
+      {/* 検索結果（検索時のみ表示） */}
+      {searchResults.length > 0 && (
+        <SearchResultList books={searchResults} setBooks={setSearchResults} />
+      )}
+
+      {/* 登録済み本一覧 */}
       <BookList books={books} />
     </div>
   )
