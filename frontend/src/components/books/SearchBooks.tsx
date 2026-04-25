@@ -1,12 +1,16 @@
-import {useState} from "react"
+import { useState } from "react"
 import { searchBooks } from "@/lib/api/books"
-import type { Book } from "@/interfaces/index"
+import type { Book } from "@/interfaces"
 
 type Props = {
-  setBooks: React.Dispatch<React.SetStateAction<Book[]>>
+  setBooks: React.Dispatch<
+    React.SetStateAction<Book[]>
+  >
 }
 
-export default function SearchBooks({ setBooks }: Props) {
+export default function SearchBooks({
+  setBooks
+}: Props) {
   const [keyword, setKeyword] = useState("")
   const [loading, setLoading] = useState(false)
 
@@ -26,21 +30,29 @@ export default function SearchBooks({ setBooks }: Props) {
   }
 
   return (
-    <div className="mb-6">
-      <input
-        type="text"
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-        placeholder="本を検索"
-        className="border p-2 mr-2"
-      />
+    <div className="mb-8">
+        <div className="flex flex-col md:flex-row gap-3">
+          <input
+            type="text"
+            value={keyword}
+            onChange={(e) =>
+              setKeyword(e.target.value)
+            }
+            placeholder="本を検索してください"
+            className="input input-bordered w-full"
+          />
 
-      <button
-        onClick={handleSearch}
-        className="btn btn-warning"
-      >
-        {loading ? "検索中..." : "検索"}
-      </button>
+          <button
+            onClick={handleSearch}
+            className="btn btn-warning px-8"
+          >
+            {loading ? (
+              <span className="loading loading-spinner loading-sm"></span>
+            ) : (
+              "検索"
+            )}
+          </button>
+        </div>
     </div>
   )
 }
