@@ -1,5 +1,6 @@
 import type { Book } from "@/interfaces"
 import { createBook } from "@/lib/api/books"
+import BookCard from "@/components/books/BookCard"
 
 type Props = {
   books: Book[]
@@ -30,28 +31,14 @@ export default function SearchResultList({
   }
 
   return (
-    <ul className="space-y-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {books.map((book) => (
-        <li
-          key={book.googleBooksID}
-          className="border p-4 rounded"
-        >
-          <img
-            src={book.imageUrl}
-            alt={book.title}
-            className="w-20 mb-2"
-          />
-
-          <p className="font-bold">{book.title}</p>
-
-          <button
-            onClick={() => handleAddBook(book)}
-            className="btn btn-success btn-sm mt-2"
-          >
-            追加
-          </button>
-        </li>
+        <BookCard
+        book={book}
+        buttonText="追加"
+        onClick={handleAddBook}
+        />
       ))}
-    </ul>
+    </div>
   )
 }
