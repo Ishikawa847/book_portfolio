@@ -10,6 +10,7 @@ import CommonLayout from "./components/layouts/CommonLayout"
 
 import { getCurrentUser } from "@/lib/api/auth"
 import type { User } from "@/interfaces/index"
+import PublicProfile from "./pages/PublicProfile"
 
 export const AuthContext = createContext({} as {
   loading: boolean
@@ -72,6 +73,7 @@ const App: React.FC = () => {
       <Private>
         <Home />
       </Private>} />
+      <Route path="/users/:id" element={<PublicProfile />} />
     </Routes>
     </CommonLayout>
      </AuthContext.Provider>
