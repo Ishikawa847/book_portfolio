@@ -20,7 +20,7 @@ export default function BookList({
     <section className="mt-12">
       <div className="flex items-center justify-between mb-5">
         <h2 className="text-2xl font-bold">
-          マイライブラリ
+          ライブラリ
         </h2>
 
         <span className="badge badge-outline">
