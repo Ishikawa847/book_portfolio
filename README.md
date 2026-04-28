@@ -29,7 +29,10 @@
 - API連携によるSPA構成（React × Rails）
 
 ---
+## 設計書
 
+### ER図
+[Mermaid Live Editorで確認](https://mermaid.live/edit#pako:eNqVUstuwyAQ_BW0ZydyYsAOx7bXHnupLEUobGwUA9Eaqw8n_16b9HGwKrVwYHdmB0bLjnAIBkEB0oPVDWlXe8bYU4_ELpfVKozsLoQTU6yGVvc1_NBjCtPqI1nfMGsWkNcOFyA6bbsFetZ9_xLI_ErsD8EfLTkdbfC3qms6ksM_2Yk2dks_eohtoKXe6Qb3A3X_cgQZNGQNqEgDZuBwoucUksEaYotTS2BuqMGjHro4N3WWnbV_DsF9KSkMTQvqqLt-yoaz0RE__-gbJfQG6T4MPoLaCJEuATXCK6iCb9dSbEUp5K4q84pn8DYVbdaVzEtZSs5zKUUhrxm8p2fzdbUp-K7g-bS5yMWkQGNjoMfbjKRRuX4AYBWtGw)
 ## 技術スタック
 
 ### 使用言語
