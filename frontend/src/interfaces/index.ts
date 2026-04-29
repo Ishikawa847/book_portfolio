@@ -19,6 +19,7 @@ export interface User {
   provider: string
   email: string
   name: string
+  avatarUrl: string
   allowPasswordChange: boolean
   created_at: Date
   updated_at: Date
