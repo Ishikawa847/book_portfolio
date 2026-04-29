@@ -1,11 +1,15 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
+
 import { getUserProfile } from "@/lib/api/users"
+
 import BookList from "@/components/books/BookList"
+import ProfileHeader from "@/components/users/ProfileHeader"
+
 
 export default function PublicProfile() {
   const { id } = useParams()
-  
+
   const [user, setUser] = useState<any>(null)
   const [loading, setLoading] = useState(true)
 
@@ -13,6 +17,7 @@ export default function PublicProfile() {
     const fetchUser = async () => {
       try {
         const res = await getUserProfile(id!)
+        console.log(res.data)
         setUser(res.data)
       } catch (err) {
         console.log(err)
@@ -20,6 +25,7 @@ export default function PublicProfile() {
         setLoading(false)
       }
     }
+
     fetchUser()
   }, [id])
 
@@ -27,12 +33,16 @@ export default function PublicProfile() {
   if (!user) return <p>ユーザーが見つかりませんでした</p>
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold">
-        {user?.name}の公開プロフィール
-      </h1>
+    <div className="p-6 space-y-6">
 
-      <BookList books={user?.books || []} />
+      <ProfileHeader
+        name={user.name}
+        avatarUrl={user.avatarUrl}
+        books={user.books}
+      />
+
+      <BookList books={user.books} />
+
     </div>
   )
 }

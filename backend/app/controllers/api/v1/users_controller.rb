@@ -19,7 +19,7 @@ class Api::V1::UsersController < ApplicationController
     if user.avatar.attached?
       url_for(user.avatar)
     else
-      "#{ENV['FRONTEND_ORIGIN']}/sample.png"
+      "#{ENV['FRONTEND_ORIGIN']}/sample.jpg"
     end
   end
 
