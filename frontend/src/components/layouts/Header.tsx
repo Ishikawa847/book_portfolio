@@ -7,6 +7,7 @@ const Header = () => {
     <header className="navbar bg-base-100 shadow-md px-4">
       <div className="flex-1 flex items-center gap-2">
         <HamburgerButton htmlFor="menu-drawer" />
+        <img src="/favicon.png" alt="Logo" className="h-8 w-8" />
         <Link to="/" className="text-xl font-bold">
           Book Portfolio
         </Link>
