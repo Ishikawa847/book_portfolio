@@ -9,7 +9,7 @@ type Props = {
 export default function EditProfileModal({ onClose, name: initialName, avatarUrl }: Props) {
     const [name, setName] = useState(initialName)
     const [image, setImage] = useState<File | null>(null)
-
+    console.log(image)
     return (
     <div className="modal modal-open">
       <div className="modal-box">
