@@ -23,7 +23,7 @@ const Header = ({ user }: Props) => {
       </div>
 
       <div className="flex gap-2">
-        {user && <AvatarMenu avatarUrl={user.avatarUrl} />}
+        {user && <AvatarMenu avatarUrl={user.avatarUrl} name={user.name} />}
         <AuthButtons />
       </div>
     </header>

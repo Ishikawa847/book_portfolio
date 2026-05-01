@@ -2,9 +2,10 @@ import { useState } from "react"
 import EditProfileModal from "@/components/users/EditProfileModal"
 
 type Props = {
+    name: string
     avatarUrl: string
 }
- export default function AvatarMenu({ avatarUrl }: Props) {
+ export default function AvatarMenu({ name, avatarUrl }: Props) {
     const [open, setOpen] = useState(false)
 
     return (
@@ -26,7 +27,7 @@ type Props = {
         </ul>
       </div>
 
-      {open && <EditProfileModal onClose={() => setOpen(false)} />}
+      {open && <EditProfileModal onClose={() => setOpen(false)} name={name} avatarUrl={avatarUrl} />}
       
       </>
     )
