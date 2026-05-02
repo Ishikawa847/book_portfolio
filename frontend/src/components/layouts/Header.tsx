@@ -7,11 +7,11 @@ import type { User } from "@/interfaces"
 
 type Props = {
   user: User | null
+  onUserUpdate: (user: User) => void
 }
 
-const Header = ({ user }: Props) => {
-  console.log("Header user:", user)
-  console.log("Header user avatarUrl:", user?.avatarUrl)
+const Header = ({ user, onUserUpdate }: Props) => {
+
   return (
     <header className="navbar bg-base-100 shadow-md px-4">
       <div className="flex-1 flex items-center gap-2">
@@ -23,7 +23,7 @@ const Header = ({ user }: Props) => {
       </div>
 
       <div className="flex gap-2">
-        {user && <AvatarMenu avatarUrl={user.avatarUrl} name={user.name} />}
+        {user && <AvatarMenu user={user} onUserUpdate={onUserUpdate} />}
         <AuthButtons />
       </div>
     </header>
