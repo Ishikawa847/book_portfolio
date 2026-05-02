@@ -1,13 +1,16 @@
+import type { User } from "@/interfaces"
+import { updateUser } from "@/lib/api/users"
 import React, { useState, useEffect } from "react"
+
 
 type Props = {
   onClose: () => void
-  name: string
-  avatarUrl: string
+  onUpdated: (user: User) => void
+  user: User
 }
 
-export default function EditProfileModal({ onClose, name: initialName, avatarUrl }: Props) {
-    const [name, setName] = useState(initialName)
+export default function EditProfileModal({ onClose, onUpdated, user }: Props) {
+    const [name, setName] = useState(user.name)
     const [image, setImage] = useState<File | null>(null)
     const [preview, setPreview] = useState<string | null>(null)
 
@@ -18,6 +21,23 @@ export default function EditProfileModal({ onClose, name: initialName, avatarUrl
       const url = URL.createObjectURL(file)
       setPreview(url)
     }
+
+    const handleSubmit = async () => {
+        try {
+          const res = await updateUser(user.id, {
+            name, 
+            avatar: image,
+          })
+
+        const updatedUser = res.data
+        onUpdated(updatedUser)
+        onClose()
+      } catch (err) {
+        console.log(err)
+        alert("プロフィールの更新に失敗しました")
+      }
+        }
+
 
     useEffect(() => {
       return () => {
@@ -37,7 +57,7 @@ export default function EditProfileModal({ onClose, name: initialName, avatarUrl
         <div className="flex justify-center mb-4">
           <div className="avatar">
             <div className="w-24 rounded-full">
-              <img src={preview || avatarUrl} />
+              <img src={preview || user.avatarUrl} />
             </div>
           </div>
         </div>
@@ -63,7 +83,7 @@ export default function EditProfileModal({ onClose, name: initialName, avatarUrl
           <button className="btn" onClick={onClose}>
             キャンセル
           </button>
-          <button className="btn btn-warning">
+          <button className="btn btn-warning" onClick={handleSubmit}>
             保存
           </button>
         </div>

@@ -36,7 +36,7 @@ const CommonLayout = ({ children }: Props) => {
       />
     <div className="drawer-content min-h-screen w-full">
       <header className="w-full">
-        <Header user={user}/>
+        <Header user={user} onUserUpdate={setUser}/>
       </header>
       <main>
         {children}

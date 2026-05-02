@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       resources :books, only: [:index, :create]
       get "/books/search", to: "books#search"
 
-      resources :users, only: %i[show]
+      resources :users, only: %i[show update]
     end
   end
 

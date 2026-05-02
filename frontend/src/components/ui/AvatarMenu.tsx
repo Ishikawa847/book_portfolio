@@ -1,11 +1,12 @@
 import { useState } from "react"
 import EditProfileModal from "@/components/users/EditProfileModal"
+import type { User } from "@/interfaces"
 
 type Props = {
-    name: string
-    avatarUrl: string
+    user: User
+    onUserUpdate: (user: User) => void
 }
- export default function AvatarMenu({ name, avatarUrl }: Props) {
+ export default function AvatarMenu({ user, onUserUpdate }: Props) {
     const [open, setOpen] = useState(false)
 
     return (
@@ -14,7 +15,7 @@ type Props = {
         <div tabIndex={0} role="button" className="avatar cursor-pointer">
           {/* daisyUI: avatar */}
           <div className="w-10 rounded-full">
-            <img src={avatarUrl} alt="avatar" />
+            <img src={user.avatarUrl} alt="avatar" />
           </div>
         </div>
 
@@ -27,7 +28,7 @@ type Props = {
         </ul>
       </div>
 
-      {open && <EditProfileModal onClose={() => setOpen(false)} name={name} avatarUrl={avatarUrl} />}
+      {open && <EditProfileModal onClose={() => setOpen(false)} onUpdated={onUserUpdate} user={user} />}
       
       </>
     )

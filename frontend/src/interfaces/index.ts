@@ -14,7 +14,7 @@ export interface SignInParams {
 
 // ユーザー
 export interface User {
-  id: number
+  id: string
   uid: string
   provider: string
   email: string
