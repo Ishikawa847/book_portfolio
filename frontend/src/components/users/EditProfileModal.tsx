@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 type Props = {
   onClose: () => void
@@ -9,6 +9,22 @@ type Props = {
 export default function EditProfileModal({ onClose, name: initialName, avatarUrl }: Props) {
     const [name, setName] = useState(initialName)
     const [image, setImage] = useState<File | null>(null)
+    const [preview, setPreview] = useState<string | null>(null)
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0]
+      if (!file) return
+      setImage(file)
+      const url = URL.createObjectURL(file)
+      setPreview(url)
+    }
+
+    useEffect(() => {
+      return () => {
+        if (preview) URL.revokeObjectURL(preview)
+      }
+    }, [preview])
+
     console.log(image)
     return (
     <div className="modal modal-open">
@@ -21,7 +37,7 @@ export default function EditProfileModal({ onClose, name: initialName, avatarUrl
         <div className="flex justify-center mb-4">
           <div className="avatar">
             <div className="w-24 rounded-full">
-              <img src={avatarUrl} />
+              <img src={preview || avatarUrl} />
             </div>
           </div>
         </div>
@@ -30,7 +46,7 @@ export default function EditProfileModal({ onClose, name: initialName, avatarUrl
         <input
           type="file"
           className="file-input file-input-bordered w-full mb-4"
-          onChange={(e) => setImage(e.target.files?.[0] || null)}
+          onChange={handleChange}
         />
 
         {/* 名前入力 */}
