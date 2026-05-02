@@ -35,7 +35,7 @@ export default function Home() {
       <SearchBooks setBooks={setSearchResults} />
 
       {/* 検索結果（検索時のみ表示） */}
-      {searchResults.length > 0 && (
+      {searchResults?.length > 0 && (
         <SearchResultList books={searchResults} setBooks={setSearchResults} />
       )}
 
