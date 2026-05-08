@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
   
   has_many :books, dependent: :destroy
+  has_many :reading_logs, dependent: :destroy
   has_one_attached :avatar
   
 end
