@@ -25,3 +25,7 @@ export const createBook = (params:{
     }) => {
       return client.post("/books", params)
 }
+
+export const getBook = (id: string) => {
+  return client.get('/book/${id}')
+}
