@@ -1,4 +1,5 @@
 import type { Book } from "@/interfaces"
+import { Link } from "react-router-dom"
 
 type Props = {
   book: Book
@@ -12,6 +13,7 @@ export default function BookCard({
   onClick
 }: Props) {
   return (
+    <Link to={`/books/${book.id}`}>
     <div className="card bg-base-100 shadow-xl">
       <figure className="px-4 pt-4">
         <img
@@ -42,5 +44,6 @@ export default function BookCard({
         )}
       </div>
     </div>
+    </Link>
   )
 }
