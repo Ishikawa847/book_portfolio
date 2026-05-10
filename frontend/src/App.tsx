@@ -78,9 +78,7 @@ const App: React.FC = () => {
   <Route
     path="/books/:id"
     element={
-      <Private>
         <BookDetail />
-      </Private>
     }
   />
       <Route path="/users/:id" element={<PublicProfile />} />
