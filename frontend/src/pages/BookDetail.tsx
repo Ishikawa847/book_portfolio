@@ -34,7 +34,7 @@ export default function BookDetail() {
         {/* 本画像 */}
         <figure className="p-6 lg:w-1/3">
           <img
-            src="https://placehold.jp/300x450.png"
+            src={book.imageUrl || "https://placehold.jp/300x450.png"}
             alt="book"
             className="rounded-xl object-cover w-full max-w-xs"
           />
@@ -45,11 +45,11 @@ export default function BookDetail() {
           <div className="flex items-start justify-between gap-4">
             <div>
               <h1 className="text-3xl font-bold">
-                Book Title
+                {book.title}
               </h1>
 
               <p className="text-gray-500 mt-2">
-                著者名
+                {book.author}
               </p>
             </div>
 
