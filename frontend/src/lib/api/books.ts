@@ -27,5 +27,5 @@ export const createBook = (params:{
 }
 
 export const getBook = (id: string) => {
-  return client.get(`/book/${id}`)
+  return client.get(`/books/${id}`)
 }
