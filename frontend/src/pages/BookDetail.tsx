@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom"
 import { getBook } from "@/lib/api/books"
 
 import type { Book } from "@/interfaces/index"
+import ReadingLogList from "@/components/readingLogs/ReadingLogList"
+import ReadingLogForm from "@/components/readingLogs/ReadingLogForm"
 
 export default function BookDetail() {
   const { id } = useParams()
@@ -73,34 +75,13 @@ export default function BookDetail() {
         </div>
       </div>
 
-      {/* 読書記録エリア */}
-      <div className="mt-10">
-        <h2 className="text-2xl font-bold mb-4">
-          読書記録
-        </h2>
+<div className="mt-10">
+  <ReadingLogForm />
+</div>
 
-        <div className="space-y-4">
-
-          <div className="card bg-base-100 shadow">
-            <div className="card-body">
-              <div className="flex justify-between items-center">
-                <p className="font-bold">
-                  2026/05/09
-                </p>
-
-                <div className="badge badge-outline">
-                  memo
-                </div>
-              </div>
-
-              <p>
-                第3章まで読んだ。
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
+<div className="mt-10">
+  <ReadingLogList />
+</div>
     </div>
   )
 }
