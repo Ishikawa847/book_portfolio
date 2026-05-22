@@ -1,6 +1,6 @@
 import client from "@/lib/api/client"
 
-export const createReaingLog = (
+export const createReadingLog = (
     bookId: string,
     params: {
         memo: string
