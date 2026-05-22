@@ -76,7 +76,7 @@ export default function BookDetail() {
       </div>
 
 <div className="mt-10">
-  <ReadingLogForm />
+  <ReadingLogForm bookId={book.id} />
 </div>
 
 <div className="mt-10">
