@@ -80,7 +80,7 @@ export default function BookDetail() {
 </div>
 
 <div className="mt-10">
-  <ReadingLogList />
+  <ReadingLogList bookId={book.id} />
 </div>
     </div>
   )
