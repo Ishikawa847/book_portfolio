@@ -11,3 +11,7 @@ export const createReadingLog = (
         `/books/${bookId}/reading_logs`,
          {reading_log: params,})
 }
+
+export const getReadingLogs = (bookId: string) => {
+    return client.get(`/books/${bookId}/reading_logs`)
+}
