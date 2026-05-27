@@ -77,11 +77,16 @@ export default function BookDetail() {
       </div>
 
 <div className="mt-10">
-  <ReadingLogForm bookId={book.id} />
+  <ReadingLogForm bookId={book.id}
+   onCreated={() =>
+    setRefreshKey((prev) => prev + 1)
+   } />
 </div>
 
 <div className="mt-10">
-  <ReadingLogList bookId={book.id} />
+  <ReadingLogList bookId={book.id}
+   refreshKey={refreshKey}
+   />
 </div>
     </div>
   )

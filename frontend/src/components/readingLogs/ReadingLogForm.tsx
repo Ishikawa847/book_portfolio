@@ -3,6 +3,7 @@ import { createReadingLog } from "@/lib/api/readingLogs"
 
 type Props = {
   bookId: string
+  onCreated: () => void
 }
 
 export default function ReadingLogForm({ bookId }: Props) {

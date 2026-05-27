@@ -9,10 +9,12 @@ type ReadingLog = {
 
 type Props = {
   bookId: string
+  refreshKey: number
 }
 
 export default function ReadingLogList({
   bookId,
+  refreshKey
 }: Props) {
   const [logs, setLogs] = useState<ReadingLog[]>([])
   const [loading, setLoading] = useState(true)
@@ -31,7 +33,7 @@ export default function ReadingLogList({
 
   useEffect(() => {
     fetchLogs()
-  }, [])
+  }, [refreshKey])
 
   // loading
   if (loading) {
