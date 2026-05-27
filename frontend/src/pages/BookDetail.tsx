@@ -10,6 +10,7 @@ import ReadingLogForm from "@/components/readingLogs/ReadingLogForm"
 export default function BookDetail() {
   const { id } = useParams()
   const [book, setBook] = useState<Book | null>(null)
+  const [refreshKey, setRefreshKey] = useState(0) // 読書記録更新用
 
   useEffect(() => {
     const fetchBook = async () => {
