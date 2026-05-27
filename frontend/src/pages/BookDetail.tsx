@@ -10,6 +10,7 @@ import ReadingLogForm from "@/components/readingLogs/ReadingLogForm"
 export default function BookDetail() {
   const { id } = useParams()
   const [book, setBook] = useState<Book | null>(null)
+  const [refreshKey, setRefreshKey] = useState(0) // 読書記録更新用
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -76,11 +77,16 @@ export default function BookDetail() {
       </div>
 
 <div className="mt-10">
-  <ReadingLogForm bookId={book.id} />
+  <ReadingLogForm bookId={book.id}
+   onCreated={() =>
+    setRefreshKey((prev) => prev + 1)
+   } />
 </div>
 
 <div className="mt-10">
-  <ReadingLogList bookId={book.id} />
+  <ReadingLogList bookId={book.id}
+   refreshKey={refreshKey}
+   />
 </div>
     </div>
   )
